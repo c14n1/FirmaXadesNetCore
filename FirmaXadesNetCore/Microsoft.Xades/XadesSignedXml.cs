@@ -1655,10 +1655,10 @@ namespace Microsoft.Xades
             //
 
             //ReferenceLevelSortOrder comparer = new ReferenceLevelSortOrder();
-            Assembly System_Security_Assembly = Assembly.Load("System.Security, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a");
+            //Assembly System_Security_Assembly = Assembly.Load("System.Security, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a");
             Assembly cripXmlAssembly = Assembly.Load("System.Security.Cryptography.Xml");
             //Assembly System_Security_Assembly = Assembly.Load("System.Security");
-            Type ReferenceLevelSortOrder_Type = System_Security_Assembly.GetType("System.Security.Cryptography.Xml.SignedXml+ReferenceLevelSortOrder");
+            Type ReferenceLevelSortOrder_Type = cripXmlAssembly.GetType("System.Security.Cryptography.Xml.SignedXml+ReferenceLevelSortOrder");
             ConstructorInfo ReferenceLevelSortOrder_Constructor = ReferenceLevelSortOrder_Type.GetConstructor(new Type[] { });
             Object comparer = ReferenceLevelSortOrder_Constructor.Invoke(null);
             //
@@ -1815,8 +1815,9 @@ namespace Microsoft.Xades
         {
             ArrayList references = m_signature.SignedInfo.References;
 
-            Assembly System_Security_Assembly = Assembly.Load("System.Security, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a");
-            Type CanonicalXmlNodeList_Type = System_Security_Assembly.GetType("System.Security.Cryptography.Xml.CanonicalXmlNodeList");
+            //Assembly System_Security_Assembly = Assembly.Load("System.Security, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a");
+            Assembly cripXmlAssembly = Assembly.Load("System.Security.Cryptography.Xml");
+            Type CanonicalXmlNodeList_Type = cripXmlAssembly.GetType("System.Security.Cryptography.Xml.CanonicalXmlNodeList");
             ConstructorInfo CanonicalXmlNodeList_Constructor = CanonicalXmlNodeList_Type.GetConstructor(BindingFlags.NonPublic | BindingFlags.Instance, null, new Type[] { }, null);
 
             MethodInfo CanonicalXmlNodeList_Add = CanonicalXmlNodeList_Type.GetMethod("Add", BindingFlags.Public | BindingFlags.Instance);
